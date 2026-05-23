@@ -30,12 +30,9 @@ def settings(request: Request):
     return templates.TemplateResponse(request, "settings.html", {"page_title": "Settings"})
 
 
-
 @app.exception_handler(StarletteHTTPException)
 def general_http_exception_handler(request: Request, exception: StarletteHTTPException):
-    message = (
-        exception.detail or "An error occurred. Please check your request and try again."
-    )
+    message = exception.detail or "An error occurred. Please check your request and try again."
 
     return templates.TemplateResponse(
         request,
