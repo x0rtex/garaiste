@@ -11,22 +11,22 @@ templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/")
 def garage(request: Request):
-    return templates.TemplateResponse(request, "index.html", {"title": "Garage"})
+    return templates.TemplateResponse(request, "index.html", {"page_title": "Garage"})
 
 
 @app.get("/profile")
 def profile(request: Request):
-    return templates.TemplateResponse(request, "profile.html", {"title": "Profile"})
+    return templates.TemplateResponse(request, "profile.html", {"page_title": "Profile"})
 
 
 @app.get("/admin")
 def admin(request: Request):
-    return templates.TemplateResponse(request, "admin.html", {"title": "Admin Panel"})
+    return templates.TemplateResponse(request, "admin.html", {"page_title": "Admin Panel"})
 
 
 @app.get("/settings")
 def settings(request: Request):
-    return templates.TemplateResponse(request, "settings.html", {"title": "Settings"})
+    return templates.TemplateResponse(request, "settings.html", {"page_title": "Settings"})
 
 
 
@@ -41,7 +41,7 @@ def general_http_exception_handler(request: Request, exception: StarletteHTTPExc
         "error.html",
         {
             "status_code": exception.status_code,
-            "title": exception.status_code,
+            "page_title": exception.status_code,
             "message": message,
         },
         status_code=exception.status_code,

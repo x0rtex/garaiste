@@ -7,8 +7,8 @@
     <!-- Site Info -->
     {% set site_name = "Garáiste" %}
     <title>
-        {% if title %}
-            {{ site_name }} - {{ title }}
+        {% if page_title %}
+            {{ site_name }} - {{ page_title }}
         {% else %}
             {{ site_name }}
         {% endif %}
