@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Site Info -->
+    {% set site_name = "Garáiste" %}
     <title>
         {% if title %}
-            Garáiste - {{ title }}
+            {{ site_name }} - {{ title }}
         {% else %}
-            Garáiste
+            {{ site_name }}
         {% endif %}
     </title>
     <meta name="description" content="FastAPI Website">
@@ -33,7 +34,7 @@
     <nav>
         <div class="navbar-title">
             <ul>
-                <li><a href="{{ url_for('garage') }}">Garáiste</a></li>
+                <li><a href="{{ url_for('garage') }}">{{ site_name }}</a></li>
             </ul>
         </div>
         <div class="navbar-nav">
