@@ -1,67 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Site Info -->
-    <title>
-        {% if page_title %}
-            {{ site_name }} - {{ page_title }}
-        {% else %}
-            {{ site_name }}
-        {% endif %}
-    </title>
-    <meta name="description" content="FastAPI Website">
-    <meta name="author" content="x0rtex">
+        <!-- Site Info -->
+        <title>
+            {% if page_title %} {{ site_name }} - {{ page_title }} {% else %} {{
+            site_name }} {% endif %}
+        </title>
+        <meta name="description" content="FastAPI Website" />
+        <meta name="author" content="x0rtex" />
 
-    <!-- Favicon -->
-    <link id="favicon" rel="icon" type="image/x-icon" href="static/icons/favicon.ico">
+        <!-- Favicon -->
+        <link
+            id="favicon"
+            rel="icon"
+            type="image/x-icon"
+            href="{{ url_for('static', path='icons/favicon.ico') }}"
+        />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+            rel="stylesheet"
+        />
 
-    <!-- Pico CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.cyan.min.css">
+        <!-- Pico CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.cyan.min.css"
+        />
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
-</head>
+        <!-- Stylesheet -->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', path='css/style.css') }}"
+        />
+    </head>
 
-<body>
+    <body>
+        <header class="container">
+            <nav>
+                <div class="navbar-title">
+                    <ul>
+                        <li>
+                            <a href="{{ url_for('garage') }}"
+                                >{{ site_name }}</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-nav">
+                    <ul>
+                        <li><a href="{{ url_for('garage') }}">Garage</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-nav">
+                    <ul>
+                        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                        <li>
+                            <a href="{{ url_for('admin') }}">Admin Panel</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('settings') }}">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
-<header class="container">
-    <nav>
-        <div class="navbar-title">
-            <ul>
-                <li><a href="{{ url_for('garage') }}">{{ site_name }}</a></li>
-            </ul>
-        </div>
-        <div class="navbar-nav">
-            <ul>
-                <li><a href="{{ url_for('garage') }}">Garage</a></li>
-            </ul>
-        </div>
-        <div class="navbar-nav">
-            <ul>
-                <li><a href="{{ url_for('profile') }}">Profile</a></li>
-                <li><a href="{{ url_for('admin') }}">Admin Panel</a></li>
-                <li><a href="{{ url_for('settings') }}">Settings</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
+        <main class="container">{% block content %}{% endblock %}</main>
 
-<main class="container">
-    {% block content %}{% endblock %}
-</main>
-
-<footer class="container">
-  <small>Built with <a href="https://picocss.com">Pico</a></small>
-</footer>
-
-</body>
-
+        <footer class="container">
+            <small>Built with <a href="https://picocss.com">Pico</a></small>
+        </footer>
+    </body>
 </html>
