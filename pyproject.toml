@@ -5,15 +5,19 @@ description = "FastAPI Website"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "alembic>=1.18.4",
     "fastapi[standard]>=0.136.1",
     "jinja2>=3.1.6",
+    "psycopg2-binary>=2.9.12",
     "psycopg[binary]>=3.3.4",
+    "python-dotenv>=1.2.2",
     "python-multipart>=0.0.28",
+    "sqlalchemy>=2.0.49",
     "uvicorn>=0.47.0",
 ]
 
 [tool.ruff]
-line-length = 108
+line-length = 160
 target-version = "py314"
 
 [tool.ruff.lint]
