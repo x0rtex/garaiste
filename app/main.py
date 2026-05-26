@@ -6,8 +6,8 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from app.db import engine, session
-from app.models import Base
+from .db import engine, session
+from .models import Base
 
 app = FastAPI()
 Base.metadata.create_all(bind=engine)
