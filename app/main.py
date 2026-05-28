@@ -28,7 +28,7 @@ db_dependency = Annotated[Session, Depends(get_db)]
 
 
 @app.get("/")
-def garage(request: Request):
+def index(request: Request):
     return templates.TemplateResponse(request, "index.html", {"page_title": "Garage"})
 
 
